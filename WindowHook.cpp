@@ -10,6 +10,10 @@ HHOOK CWindowHook::m_hWindowHook = NULL;
 LRESULT CALLBACK CWindowHook::WindowHookProc(int nCode, WPARAM wParam, LPARAM lParam)
 {
     if (nCode >= 0 && wParam == WM_LBUTTONDOWN) {
+        MSLLHOOKSTRUCT* pMouseStruct = reinterpret_cast<MSLLHOOKSTRUCT*>(lParam);
+        int x = pMouseStruct->pt.x;
+        int y = pMouseStruct->pt.y;
+
         GetFocusedElementInfo();
     }
 
@@ -53,7 +57,8 @@ void CWindowHook::GetFocusedElementInfo()
                         if (GetModuleFileNameEx(hProcess, nullptr, szProcessName, MAX_PATH)) {
                             std::wstring processName = szProcessName;
                             size_t lastSlashPos = processName.find_last_of(L"\\");
-                            if (lastSlashPos != std::wstring::npos) {
+                            if (lastSlashPos != std::wstring::npos) 
+                            {
                                 processName = processName.substr(lastSlashPos + 1);
                             }
                             std::wcout << processName << L": ";
