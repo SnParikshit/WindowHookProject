@@ -10,10 +10,6 @@ HHOOK CWindowHook::m_hWindowHook = NULL;
 LRESULT CALLBACK CWindowHook::WindowHookProc(int nCode, WPARAM wParam, LPARAM lParam)
 {
     if (nCode >= 0 && wParam == WM_LBUTTONDOWN) {
-        MSLLHOOKSTRUCT* pMouseStruct = reinterpret_cast<MSLLHOOKSTRUCT*>(lParam);
-        int x = pMouseStruct->pt.x;
-        int y = pMouseStruct->pt.y;
-
         GetFocusedElementInfo();
     }
 
@@ -107,5 +103,4 @@ void CWindowHook::PrintElementInfo(IUIAutomationElement* pElement)
             SysFreeString(name);
         }
     }
-
 }
