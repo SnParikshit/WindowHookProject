@@ -15,23 +15,6 @@ LRESULT CALLBACK CWindowHook::WindowHookProc(int nCode, WPARAM wParam, LPARAM lP
         int y = pMouseStruct->pt.y;
 
         GetFocusedElementInfo();
-
-        // Get the window handle at the mouse click point
-        //HWND hWnd = WindowFromPoint(pMouseStruct->pt);
-        //if (hWnd != NULL) {
-        //    // Get the window class name
-        //    TCHAR szClassName[MAX_PATH];
-        //    if (GetClassName(hWnd, szClassName, MAX_PATH) > 0) {
-        //        // Print information to the console
-        //        std::wcout << L"Clicked at (x=" << x << L", y=" << y << L") on class: " << szClassName << std::endl;
-        //    }
-        //    else {
-        //        std::wcerr << L"Failed to get class name. Error code: " << GetLastError() << std::endl;
-        //    }
-        //}
-        //else {
-        //    std::wcerr << L"WindowFromPoint failed. Error code: " << GetLastError() << std::endl;
-        //}
     }
 
     // Call the next hook in the hook chain
@@ -109,39 +92,20 @@ void CWindowHook::PrintElementInfo(IUIAutomationElement* pElement)
     
     // Get the bounding rectangle of the element
     RECT boundingRect;
-    if (SUCCEEDED(pElement->get_CurrentBoundingRectangle(&boundingRect))) {
+    if (SUCCEEDED(pElement->get_CurrentBoundingRectangle(&boundingRect))) 
+    {
         std::wcout << L"{X=" << boundingRect.left << L", Y=" << boundingRect.top << L"}" << L": ";
     }
 
-    if (pElement != nullptr) {
+    if (pElement != nullptr)
+    {
         // Get the name of the element
         BSTR name;
-        if (SUCCEEDED(pElement->get_CurrentName(&name))) {
+        if (SUCCEEDED(pElement->get_CurrentName(&name)))
+        {
             std::wcout << name << std::endl;
             SysFreeString(name);
         }
-
-        //pElement->get
-        //// Get the control type of the element
-        //CONTROLTYPEID controlType;
-        //if (SUCCEEDED(pElement->get_CurrentControlType(&controlType))) {
-        //    std::wcout << L"Control Type: " << controlType << L", ";
-        //}
-
-        
     }
-    //if (pElement != nullptr) {
-    //    // Get the name of the element
-    //    BSTR name;
-    //    if (SUCCEEDED(pElement->get_CurrentName(&name))) {
-    //        std::wcout << name;
-    //        SysFreeString(name);
-    //    }
 
-    //    // Get the bounding rectangle of the element
-    //    RECT boundingRect;
-    //    if (SUCCEEDED(pElement->get_CurrentBoundingRectangle(&boundingRect))) {
-    //        std::wcout << L": {X=" << boundingRect.left << L", Y=" << boundingRect.top << L"}";
-    //    }
-    //}
 }
