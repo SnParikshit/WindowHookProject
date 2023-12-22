@@ -5,11 +5,13 @@
 void CSetMouseHook::SetMouseHook()
 {
     HHOOK mouseHook = SetWindowsHookEx(WH_MOUSE_LL, CWindowHook::WindowHookProc, GetModuleHandle(NULL), 0);
-    if (mouseHook == NULL) {
+    if (mouseHook == NULL) 
+    {
         DWORD error = GetLastError();
         std::cerr << "Failed to set up the mouse hook. Error code: " << error << std::endl;
     }
-    else {
+    else 
+    {
         m_pMousehook->SetWindowHook(mouseHook);
         std::cout << "Mouse hook successfully set up. Press Enter to exit." << std::endl;
     }
@@ -18,7 +20,8 @@ void CSetMouseHook::SetMouseHook()
 void CSetMouseHook::UnHookMouse()
 {
     // Unhook the mouse hook
-        if (m_pMousehook != NULL) {
+        if (m_pMousehook != NULL) 
+        {
             HHOOK mouseHook = m_pMousehook->GetWindowHook();
             if (mouseHook != NULL)
             {
