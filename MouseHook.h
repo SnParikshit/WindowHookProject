@@ -1,7 +1,7 @@
 #pragma once
 #include "WindowHook.h"
 
-class CSetMouseHook
+class CMouseHook
 {
 private:
 	CWindowHook* m_pMousehook;

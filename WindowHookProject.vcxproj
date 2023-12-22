@@ -141,12 +141,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="SetMouseHook.cpp" />
+    <ClCompile Include="MouseHook.cpp" />
     <ClCompile Include="WindowHook.cpp" />
     <ClCompile Include="WindowHookProject.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SetMouseHook.h" />
+    <ClInclude Include="MouseHook.h" />
     <ClInclude Include="WindowHook.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

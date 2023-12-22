@@ -21,7 +21,7 @@
     <ClCompile Include="WindowHook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SetMouseHook.cpp">
+    <ClCompile Include="MouseHook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -29,7 +29,7 @@
     <ClInclude Include="WindowHook.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SetMouseHook.h">
+    <ClInclude Include="MouseHook.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

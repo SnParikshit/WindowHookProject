@@ -3,11 +3,11 @@
 
 #include <iostream>
 #include "WindowHook.h"
-#include "SetMouseHook.h"
+#include "MouseHook.h"
 
 int main()
 {
-    CSetMouseHook* pMouseHook = new CSetMouseHook();
+    CMouseHook* pMouseHook = new CMouseHook();
     pMouseHook->SetMouseHook();
     MSG msg;
     while (GetMessage(&msg, NULL, 0, 0))
